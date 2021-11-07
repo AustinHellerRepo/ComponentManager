@@ -59,9 +59,9 @@ class ApiInterface():
 
 class ComponentManagerApiInterface(ApiInterface):
 
-	def __init__(self, component_manager_api_url: str):
+	def __init__(self, *, component_manager_api_base_url: str):
 		super().__init__(
-			api_base_url=component_manager_api_url
+			api_base_url=component_manager_api_base_url
 		)
 
 	def get_docker_api_specification(self) -> Dict:

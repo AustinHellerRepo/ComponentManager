@@ -64,12 +64,22 @@ class ComponentManagerApiInterface(ApiInterface):
 			api_base_url=component_manager_api_base_url
 		)
 
+	def get_health(self) -> Dict:
+
+		return self._get_json_result_from_url(
+			method_type=MethodTypeEnum.Get,
+			url=self._get_formatted_url(
+				url_part="/v1/test/health"
+			),
+			arguments_json_object={}
+		)
+
 	def get_docker_api_specification(self) -> Dict:
 
 		return self._get_json_result_from_url(
 			method_type=MethodTypeEnum.Post,
 			url=self._get_formatted_url(
-				url_part="/v1/api/component_manager/get_docker_api_specification"
+				url_part="/v1/api/get_docker_api_specification"
 			),
 			arguments_json_object={}
 		)
@@ -79,7 +89,7 @@ class ComponentManagerApiInterface(ApiInterface):
 		return self._get_json_result_from_url(
 			method_type=MethodTypeEnum.Post,
 			url=self._get_formatted_url(
-				url_part="/v1/api/component_manager/get_docker_component_specification_by_component_uuid"
+				url_part="/v1/api/get_docker_component_specification_by_component_uuid"
 			),
 			arguments_json_object={
 				"component_uuid": component_uuid

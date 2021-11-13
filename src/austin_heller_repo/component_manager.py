@@ -84,12 +84,12 @@ class ComponentManagerApiInterface(ApiInterface):
 			arguments_json_object={}
 		)
 
-	def get_docker_component_specification_by_component_uuid(self, *, component_uuid: str) -> Dict:
+	def get_component_specification_by_component_uuid(self, *, component_uuid: str) -> Dict:
 
 		return self._get_json_result_from_url(
 			method_type=MethodTypeEnum.Post,
 			url=self._get_formatted_url(
-				url_part="/v1/api/get_docker_component_specification_by_component_uuid"
+				url_part="/v1/api/get_component_specification_by_component_uuid"
 			),
 			arguments_json_object={
 				"component_uuid": component_uuid
